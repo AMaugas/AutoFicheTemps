@@ -5,11 +5,11 @@ program AutoFicheTemps;
 
 uses
   Vcl.Forms,
-  AFT.View.Main in 'Views\AFT.View.Main.pas' {AppView},
-  AFT.Main in 'Src\AFT.Main.pas',
-  AFT.TaskCategory in 'Src\AFT.TaskCategory.pas',
-  AFT.Model.Task in 'Models\AFT.Model.Task.pas',
-  AFT.Model.TaskIntf in 'Models\Interfaces\AFT.Model.TaskIntf.pas';
+  AFT.View.Main in 'Src\Views\AFT.View.Main.pas' {AppView},
+  AFT.AppMain in 'Src\AFT.AppMain.pas',
+  AFT.TaskCategory in 'Src\Types\AFT.TaskCategory.pas',
+  AFT.Model.Task in 'Src\Models\AFT.Model.Task.pas',
+  AFT.Model.Task.Intf in 'Src\Models\Interfaces\AFT.Model.Task.Intf.pas';
 
 {$R *.res}
 {$APPTYPE CONSOLE}

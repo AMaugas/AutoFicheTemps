@@ -5,7 +5,7 @@ interface
 uses
   System.TimeSpan,
 
-  AFT.Model.TaskIntf,
+  AFT.Model.Task.Intf,
   AFT.TaskCategory;
 
 type

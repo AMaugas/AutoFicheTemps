@@ -1,4 +1,4 @@
-unit AFT.Model.TaskIntf;
+unit AFT.Model.Task.Intf;
 
 interface
 

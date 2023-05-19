@@ -35,8 +35,6 @@ object AppView: TAppView
     Height = 643
     Align = alRight
     TabOrder = 0
-    ExplicitLeft = 657
-    ExplicitTop = -3
     object LogMemo: TMemo
       AlignWithMargins = True
       Left = 4
@@ -54,10 +52,6 @@ object AppView: TAppView
       ReadOnly = True
       ScrollBars = ssBoth
       TabOrder = 0
-      ExplicitLeft = 712
-      ExplicitTop = 3
-      ExplicitWidth = 249
-      ExplicitHeight = 637
     end
   end
   object Panel2: TPanel
@@ -68,10 +62,6 @@ object AppView: TAppView
     Align = alClient
     Caption = 'Panel2'
     TabOrder = 1
-    ExplicitLeft = 400
-    ExplicitTop = 320
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object SpeedButton1: TSpeedButton
       AlignWithMargins = True
       Left = 4
@@ -96,9 +86,6 @@ object AppView: TAppView
       ItemMargins.Bottom = 0
       ParentColor = False
       TabOrder = 0
-      ExplicitLeft = -1
-      ExplicitTop = -5
-      ExplicitHeight = 599
     end
   end
   object NotificationCenter1: TNotificationCenter

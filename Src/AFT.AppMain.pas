@@ -1,4 +1,4 @@
-﻿unit AFT.Main;
+﻿unit AFT.AppMain;
 
 interface
 
