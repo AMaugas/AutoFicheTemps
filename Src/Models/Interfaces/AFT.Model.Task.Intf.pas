@@ -20,9 +20,11 @@ type
     function GetisActive: boolean;
     procedure SetisActive(const aValue: boolean);
 
-    function GetTimeSpan: TTimeSpan;
-    procedure SetTimeSpan(const aValue: TTimeSpan);
     { public }
+    function TotalTimeSpentOnTask : TTimeSpan;
+    function TimeSpentOnTaskByWeek(const aWeekNumber : Int32): TTimeSpan;
+    procedure IncreaseTimeSpentOnTask(const aSpan :TTimeSpan);
+
     property Title: string
       read   GetTitle
       write  SetTitle;
@@ -32,9 +34,6 @@ type
     property isActive: boolean
       read   GetisActive
       write  SetisActive;
-    property TimeSpan: TTimeSpan
-      read   GetTimeSpan
-      write  SetTimeSpan;
   end;
 
 implementation
