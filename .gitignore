@@ -63,6 +63,7 @@ __history/
 __recovery/
 *.~*
 
+Build/
 Win32/*
 Win64/*
 

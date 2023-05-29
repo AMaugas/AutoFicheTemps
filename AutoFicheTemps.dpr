@@ -7,9 +7,10 @@ uses
   Vcl.Forms,
   AFT.View.Main in 'Src\Views\AFT.View.Main.pas' {AppView},
   AFT.AppMain in 'Src\AFT.AppMain.pas',
-  AFT.TaskCategory in 'Src\Types\AFT.TaskCategory.pas',
   AFT.Model.Task in 'Src\Models\AFT.Model.Task.pas',
-  AFT.Model.Task.Intf in 'Src\Models\Interfaces\AFT.Model.Task.Intf.pas';
+  AFT.TaskCategory in 'Src\Types\AFT.TaskCategory.pas',
+  AFT.Task in 'Src\Types\AFT.Task.pas',
+  AFT.Presenter.Task in 'Src\Presenters\AFT.Presenter.Task.pas';
 
 {$R *.res}
 {$APPTYPE CONSOLE}

@@ -14,7 +14,7 @@ type
 
   TAftCategoryConverter = class
     class function ToTypeString(const aCategory: TAftCategory): string;
-    class function ToString(const aCategory: TAftCategory): string;
+    class function ToNiceString(const aCategory: TAftCategory): string;
     class function FromTypeString(const aType: string): TAftCategory;
   end;
 
@@ -28,7 +28,7 @@ const
     'Administratif',                                      //
     'Vie d'' entreprise',                                 //
     'Bibliographie',                                      //
-    'Développement téchnique',                          //
+    'Développement téchnique',                            //
     'Tests et validation',                                //
     'Repporting'                                          //
     );
@@ -36,11 +36,13 @@ const
   { TAftCategoryConverter }
 
 class function TAftCategoryConverter.FromTypeString(const aType: string): TAftCategory;
+var
+  test: TObject;
 begin
   Result := TRttiEnumerationType.GetValue<TAftCategory>(aType);
 end;
 
-class function TAftCategoryConverter.ToString(const aCategory: TAftCategory): string;
+class function TAftCategoryConverter.ToNiceString(const aCategory: TAftCategory): string;
 begin
   Result := AFT_CATEGORY_STRING[aCategory];
 end;

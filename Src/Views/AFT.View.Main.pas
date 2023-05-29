@@ -3,39 +3,53 @@ unit AFT.View.Main;
 interface
 
 uses
-  Winapi.Windows,
-  Winapi.Messages,
+    Winapi.Windows,
+    Winapi.Messages,
 
-  System.SysUtils,
-  System.Variants,
-  System.Classes,
-  System.Notification,
+    System.SysUtils,
+    System.Variants,
+    System.Classes,
+    System.Notification,
 
-  Vcl.Graphics,
-  Vcl.Controls,
-  Vcl.Forms,
-  Vcl.Dialogs,
-  Vcl.StdCtrls,
-  Vcl.ExtCtrls, Vcl.ControlList, Vcl.WinXCtrls, Vcl.Buttons;
+    Vcl.Graphics,
+    Vcl.Controls,
+    Vcl.Forms,
+    Vcl.Dialogs,
+    Vcl.StdCtrls,
+    Vcl.ExtCtrls,
+    Vcl.ControlList,
+    Vcl.WinXCtrls,
+    Vcl.Buttons,
+
+    AFT.Component.View.Task;
 
 type
-  TAppView = class(TForm)
-    LogMemo: TMemo;
-    NotificationCenter1: TNotificationCenter;
-    TrayIcon1: TTrayIcon;
-    ControlList1: TControlList;
-    Splitter1: TSplitter;
-    Panel1: TPanel;
-    SpeedButton1: TSpeedButton;
-    Panel2: TPanel;
-    procedure FormKeyPress(Sender: TObject; var Key: Char);
-  private
+    TAppView = class(TForm)
+        LogMemo: TMemo;
+        NotificationCenter1: TNotificationCenter;
+        TrayIcon1: TTrayIcon;
+        TaskControlList: TControlList;
+        Splitter1: TSplitter;
+        Panel1: TPanel;
+        AddTaskSpeedButton: TSpeedButton;
+        Panel2: TPanel;
+        TaskTitleLabel: TLabel;
+        TaskCategoryLabel: TLabel;
+        TaskTimeLabel: TLabel;
+        NoActiveTaskPanel: TPanel;
+        NoActiveTaskLabel: TLabel;
+        ActiveTaskView: TAftTaskView;
+        procedure FormKeyPress(Sender: TObject; var Key: Char);
+    private
 
-  public
-    constructor Create(AOwner: TComponent); override;
+    protected
+        procedure CreateWnd; override;
 
-    procedure Log(const s: string);
-  end;
+    public
+        constructor Create(AOwner: TComponent); override;
+
+        procedure Log(const s: string);
+    end;
 
 implementation
 
@@ -44,20 +58,26 @@ implementation
 
 constructor TAppView.Create(AOwner: TComponent);
 begin
-  inherited;
+    inherited;
+end;
 
+procedure TAppView.CreateWnd;
+begin
+    inherited;
+
+    TaskControlList.Invalidate;
 end;
 
 procedure TAppView.FormKeyPress(Sender: TObject; var Key: Char);
 begin
-  if (Key = 'q') or (Key = 'Q') then begin
-    Application.Terminate;
-  end;
+    if (Key = 'q') or (Key = 'Q') then begin
+        Application.Terminate;
+    end;
 end;
 
 procedure TAppView.Log(const s: string);
 begin
-  LogMemo.Lines.Add(FormatDateTime('"[" dd/mm/yyyy hh:nn:ss:zzz "] "', Now) + s);
+    LogMemo.Lines.Add(FormatDateTime('"[" dd/mm/yyyy hh:nn:ss:zzz "] "', Now) + s);
 end;
 
 end.

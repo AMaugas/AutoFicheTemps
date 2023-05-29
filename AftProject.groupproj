@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{99740943-305B-4C02-8E01-B18FCD49B802}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Components\AftComponents.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Components\DclAftComponents.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AutoFicheTemps.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AftComponents">
+        <MSBuild Projects="Components\AftComponents.dproj"/>
+    </Target>
+    <Target Name="AftComponents:Clean">
+        <MSBuild Projects="Components\AftComponents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AftComponents:Make">
+        <MSBuild Projects="Components\AftComponents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DclAftComponents">
+        <MSBuild Projects="Components\DclAftComponents.dproj"/>
+    </Target>
+    <Target Name="DclAftComponents:Clean">
+        <MSBuild Projects="Components\DclAftComponents.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DclAftComponents:Make">
+        <MSBuild Projects="Components\DclAftComponents.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AutoFicheTemps">
+        <MSBuild Projects="AutoFicheTemps.dproj"/>
+    </Target>
+    <Target Name="AutoFicheTemps:Clean">
+        <MSBuild Projects="AutoFicheTemps.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AutoFicheTemps:Make">
+        <MSBuild Projects="AutoFicheTemps.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AftComponents;DclAftComponents;AutoFicheTemps"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AftComponents:Clean;DclAftComponents:Clean;AutoFicheTemps:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AftComponents:Make;DclAftComponents:Make;AutoFicheTemps:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
